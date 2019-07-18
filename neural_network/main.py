@@ -91,7 +91,7 @@ def main_cs2sg_one(csnum: int, model_struct: tuple, num_epoch: int = 1):
 def main_cs2sg_all(num_epoch: int = 1):
     data_processing.create_empty_list_files(230, "data/guess/", "spacegroup_list_{}.txt")
 
-    input_sizes = [800, 2800, 2100, 1000, 1300, 600, 1100]*7
+    input_sizes = [800, 2800, 2100, 1000, 1300, 600, 1100]
     cs_sizes = crystal.crystal_system_sizes()
     output_sizes = [cs_sizes[i - 1] - cs_sizes[i - 2] + 1 if i > 1 else 3 for i in range(1, 8)]
 

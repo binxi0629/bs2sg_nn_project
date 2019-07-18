@@ -33,7 +33,7 @@ class BandsData:
         if self.cs == '0':
             self.this_dict = self.__gen_dict
         else:
-            with open('data/CS_dict.json', 'r') as file:
+            with open('CS_dict.json', 'r') as file:
                 cs_dict = json.load(file)
                 self.this_dict = cs_dict[self.cs]
 

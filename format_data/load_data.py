@@ -158,7 +158,7 @@ def create_new_data(data_dir='../data/',
                     with open(save_dir+save_file_name, 'w') as file:
                         json.dump(data, file, cls=format_data.NumpyEncoder, indent=4)
 
-                        print("\r\tFinished {}|Total: {}".format(count, num_files), end='')
+                        print("\r\tFinished: {}|Total: {}".format(count, num_files), end='')
                         count += 1
 
     print('\nThese are low fermi cases:\n {}'.format(low_fermi))
@@ -216,6 +216,7 @@ if __name__ == "__main__":
     if args['create_data']['start']:
         cfg = args['create_data']
         create_new_data(data_dir=cfg['data_dir'],
+                        crystal_system=cfg['crystal_system'],
                         degeneracy=cfg['degeneracy'],
                         en_tolerance=cfg['en_tolerance'],
                         padding_around_fermi=cfg['padding_around_fermi'],
@@ -231,5 +232,4 @@ if __name__ == "__main__":
         create_high_weights_new_data(data_dir=cfg2['data_dir'],
                                      new_data_dir=cfg2['new_data_dir'],
                                      lowest_weights_limit=cfg2['lowest_weights_limit'])
-
 

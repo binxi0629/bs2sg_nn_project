@@ -105,8 +105,8 @@ def create_new_data(data_dir='../data/',
                                                                       # padding_num=padding_num,
                                                                       num_of_bands=num_of_bands)
                     except Exception:
-                        print(">>>>>>>>>>mp-{}".format(mp_id))
-
+                        # print(">>>>>>>>>>mp-{}".format(mp_id))
+                        pass
                     padding = True
                 else:
                     padding = False

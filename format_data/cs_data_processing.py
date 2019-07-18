@@ -39,7 +39,7 @@ def create_cs_data(data_name,
     error_files["mp_id"] = []
     low_fermi = []
     num_data = 1
-    save_dir = 'data/cs_data/cs_{}_input_data/'.format(crystal_system)
+    save_dir = '../neural_network/data/cs_data/cs_{}_input_data/'.format(crystal_system)
 
     split = re.split('raw', data_name)
     # print(split)
@@ -147,13 +147,13 @@ def create_cs_data(data_name,
                 json.dump(data, file, cls=format_data.NumpyEncoder, indent=4)
 
 
-def processing_2(data_dir='data/data/'):
+def processing_2(data_dir='../data/'):
     print('Data processing...')
     for i in range(7):
         crystal_system = i+1
         crystal_system = str(crystal_system)
         count = 0
-        with open("data/guess/crystal_list_{}.txt".format(i + 1), "r") as list_file:
+        with open("../neural_network/data/guess/crystal_list_{}.txt".format(i + 1), "r") as list_file:
             for data_file_path in list_file:
                 split_name = re.split('\n', data_file_path)
                 split_name = re.split('new_input', split_name[0])  # _data_<mp-id>.json
@@ -185,11 +185,11 @@ def processing_2(data_dir='data/data/'):
 def rm_all_files_in_cs_input_data():
     import shutil
     for i in range(7):
-        shutil.rmtree(f'data/cs_data/cs_{i + 1}_input_data/')
-        os.mkdir(f'data/cs_data/cs_{i + 1}_input_data/')
+        shutil.rmtree(f'../neural_network/data/cs_data/cs_{i + 1}_input_data/')
+        os.mkdir(f'../neural_network/data/cs_data/cs_{i + 1}_input_data/')
 
 
 if __name__ == '__main__':
     rm_all_files_in_cs_input_data()
-    processing_2(data_dir='data/data/')   # <<<<<
+    processing_2(data_dir='../data/')   # <<<<<
     pass

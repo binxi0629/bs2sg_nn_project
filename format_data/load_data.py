@@ -158,7 +158,7 @@ def create_new_data(data_dir='../data/',
                     with open(save_dir+save_file_name, 'w') as file:
                         json.dump(data, file, cls=format_data.NumpyEncoder, indent=4)
 
-                        print("\rFinished... {}/{}".format(count, num_files), end='')
+                        print("\r\tFinished {}|Total: {}".format(count, num_files), end='')
                         count += 1
 
     print('\nThese are low fermi cases:\n {}'.format(low_fermi))

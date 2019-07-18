@@ -18,6 +18,7 @@ def get_space_group_from_file(mp_id):  # load file in input_data
 
 
 def create_new_data(data_dir='../data/',
+                    crystal_system='0',
                     degeneracy=False,
                     en_tolerance=0.01,
                     around_fermi=False,
@@ -62,7 +63,7 @@ def create_new_data(data_dir='../data/',
                 data['id'] = mp_id
 
                 # step 1: create BandsData class
-                this_data = format_data.BandsData(mp_id=mp_id)
+                this_data = format_data.BandsData(mp_id=mp_id, crystal_system=crystal_system)
 
                 bands = data_json["band"]["bands"]
                 bands = np.array(bands)
